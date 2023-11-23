@@ -18,16 +18,12 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        // $data = $this->session->userdata();
-        // dd($data);
-
         $data['user'] = $this->Auth_model->getDatauser();
         $data['title'] = 'Halaman Admin';
         $data['totalKrirteria'] = count($this->Perhitungan->getKriteria());
         $data['totalUser'] = count($this->Perhitungan->getUser());
         $data['totalData'] = count($this->Perhitungan->countMhs());
         $berita = $this->Perhitungan->getBerita();
-        // dd($berita[0]->Berita);
         $berita = $berita[0]->Berita;
         $data['berita'] = nl2br($berita, false);
 
